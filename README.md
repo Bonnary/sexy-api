@@ -5,9 +5,16 @@ sexy api is an api that returns a json object of sexy girl from instargram.
 ## Usage
 
 **Python**
-`import request
-response = request.get()
-`
+</br>
+
+```
+import requests
+
+response = requests.get(
+'https://raw.githubusercontent.com/Bonnary/sexy-api/main/data.json')
+
+print(response.json())
+```
 
 ## DISCLAIMER
 

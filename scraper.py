@@ -14,10 +14,10 @@ def scrape(URL):
     time.sleep(1)
 
     # scroll to bottom page 30 times every 3 seconds
-    for i in range(30):
+    for i in range(20):
         driver.execute_script(
             "window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(3)
+        time.sleep(2)
 
     html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
@@ -44,53 +44,11 @@ def scrape(URL):
     # write it to json file
     with open('data.json', 'w') as fp:
         json.dump(data_old, fp)
+    driver.close()
 
 
-urls = [
-    "https://imginn.com/sexy_video_girl12",
-    "https://imginn.com/hot_sexi_videos",
-    "https://imginn.com/hot_girls_movie",
-    "https://imginn.com/girl_hot_video_0808",
-    "https://imginn.com/sexy_hot796",
-    "https://imginn.com/miya_kalifa_hot",
-    "https://imginn.com/dating.usa.girls",
-    "https://imginn.com/hotgirlmakeout",
-    "https://imginn.com/h.s.girls__",
-    "https://imginn.com/hot_sexy_girls_pic_and_video_",
-    "https://imginn.com/hot_girl_anime__",
-    "https://imginn.com/indian_sexy_figure",
-    "https://imginn.com/hotty_indiangirl",
-    "https://imginn.com/indian_hot_girl____",
-    "https://imginn.com/hot_chinese_girl_099",
-    "https://imginn.com/hot_girls_fotos_",
-    "https://imginn.com/hot_anime_girlls",
-    "https://imginn.com/hotg.irl81581",
-    "https://imginn.com/hot.mayara",
-    "https://imginn.com/_hot_and_sexy_anime_girls_",
-    "https://imginn.com/hotgirlinsaree",
-    "https://imginn.com/massgaeserviceindohaqatar",
-    "https://imginn.com/naked_top_models",
-    "https://imginn.com/hot.girls_69",
-    "https://imginn.com/perverso.a1",
-    "https://imginn.com/sexy_hot_desi_girl",
-    "https://imginn.com/blondebabe.s",
-    "https://imginn.com/_hot_boy_124568",
-    "https://imginn.com/world_best_girl",
-    "https://imginn.com/vietnams3xygirl",
-    "https://imginn.com/hot_and_sexy_girls_bhabhi",
-    "https://imginn.com/classic.divaz",
-    "https://imginn.com/gbg_inst",
-    "https://imginn.com/sexy_babe_.____",
-    "https://imginn.com/teens.babes",
-    "https://imginn.com/curvy.hotgirls",
-    "https://imginn.com/anime_nude14748",
-    "https://imginn.com/ifoundthehotgirl",
-    "https://imginn.com/hot_and_cute_asian_girl",
-    "https://imginn.com/hot_girls_pics_x69",
-    "https://imginn.com/hot_sexy_girls_pic_and_videos",
-    "https://imginn.com/hot_girls_shoot1",
-    "https://imginn.com/hot_korean_girls_",
-]
+links_data = json.load(open('links.json', 'r'))
+urls = links_data["links"]
 
 
 for url in urls:
